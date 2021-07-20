@@ -27,8 +27,9 @@ public class UserController {
 
     @GetMapping("/{id}")
     @Tag(name = "Получить пользователя по id")
-    public String getUserById(@PathVariable Long id){
-        return null;
+    public String getUserById(@PathVariable Long id,Model model){
+        model.addAttribute("user",userService.findById(id));
+        return "userInfo";
     }
 
     @GetMapping()
