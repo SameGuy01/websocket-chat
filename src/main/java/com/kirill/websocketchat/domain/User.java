@@ -1,12 +1,13 @@
 package com.kirill.websocketchat.domain;
 
-import com.kirill.websocketchat.domain.enums.Role;
+import com.kirill.websocketchat.domain.enums.Roles;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,10 +32,6 @@ public class User {
 
     private Timestamp block_end;
 
-    @Column(name="role")
-    @Enumerated(EnumType.ORDINAL)
-    private Role role;
-
     @OneToOne(mappedBy = "user")
     private Message message;
 
@@ -45,7 +42,7 @@ public class User {
     @JoinTable(name="users_role",
             joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name="admin_room",

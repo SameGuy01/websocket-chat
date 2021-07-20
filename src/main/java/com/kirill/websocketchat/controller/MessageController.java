@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/messages")
+@RequestMapping("/message")
 @Data
 public class MessageController {
 
@@ -28,11 +28,11 @@ public class MessageController {
         return null;
     }
 
-    @PutMapping("/save")
+    /*@PutMapping("/save")
     @Tag(name = "Сохранить сообщение")
     public String saveMessage(@RequestBody("message") Message message){
         return null;
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     @Tag(name = "Удалить сообщение по id")
