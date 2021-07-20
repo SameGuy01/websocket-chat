@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/rooms")
+@RequestMapping("/room")
 @Data
 public class RoomController {
 
@@ -28,11 +28,11 @@ public class RoomController {
         return null;
     }
 
-    @PutMapping("/save")
+    /*@PutMapping("/save")
     @Tag(name = "Сохранить или обновить комнату")
     public String saveRoom(@RequestBody("room") Room room){
         return null;
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     @Tag(name = "Удалить комнату по id")
