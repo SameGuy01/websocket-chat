@@ -3,25 +3,24 @@ package com.kirill.websocketchat.service.impl;
 import com.kirill.websocketchat.domain.Role;
 import com.kirill.websocketchat.domain.User;
 import com.kirill.websocketchat.domain.enums.Roles;
+import com.kirill.websocketchat.exception.UserNotFoundException;
 import com.kirill.websocketchat.repository.RoleRepository;
 import com.kirill.websocketchat.repository.UserRepository;
 import com.kirill.websocketchat.service.UserService;
-import com.kirill.websocketchat.exception.UserNotFoundException;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Service
 @Data
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UserServiceImpl implements UserService {
+@RequiredArgsConstructor
+@Transactional
+public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 

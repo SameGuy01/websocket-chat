@@ -5,10 +5,13 @@ import com.kirill.websocketchat.repository.MessageRepository;
 import com.kirill.websocketchat.service.MessageService;
 import com.kirill.websocketchat.exception.MessageNotFoundException;
 import lombok.Data;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
 @Data
+@Transactional
 public class MessageServiceImpl implements MessageService {
     MessageRepository messageRepository;
 

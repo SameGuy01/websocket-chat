@@ -5,10 +5,12 @@ import com.kirill.websocketchat.repository.RoomRepository;
 import com.kirill.websocketchat.service.RoomService;
 import com.kirill.websocketchat.exception.RoomNotFoundException;
 import lombok.Data;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Data
+@Transactional
 public class RoomServiceImpl implements RoomService {
     RoomRepository roomRepository;
     @Override
